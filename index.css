@@ -1043,45 +1043,57 @@ li {
 
 @media (max-width: 768px) {
 
+    /* ---- Reset: box-sizing + airtight overflow clipping ---- */
     *,
     *::before,
     *::after {
         box-sizing: border-box;
     }
 
-    html,
-    body {
-        overflow-x: hidden;
-        max-width: 100%;
+    /* overflow-x: clip is more reliable than hidden on iOS Safari;
+       it cuts off visually without creating a scroll container */
+    html {
+        overflow-x: clip;
     }
 
+    body {
+        overflow-x: clip;
+        max-width: 100vw;
+        width: 100%;
+    }
+
+    /* Cap all images and make inline width= attrs irrelevant */
     img {
         max-width: 100%;
+        height: auto;
     }
 
-
-    .section h1 {
-        font-size: 26px !important;
+    /* min-width: 0 lets flex/grid items shrink below content size */
+    .section,
+    .services,
+    .servicecards,
+    .Workcards,
+    .sc1,
+    .wc1,
+    .tc1,
+    .mc1,
+    .two-3,
+    .left-1,
+    .right-1,
+    .left2,
+    .right2 {
+        min-width: 0;
     }
 
-    .section h2 {
-        font-size: 20px !important;
-    }
+    /* ---- Generic heading scale ---- */
+    .section h1 { font-size: 26px !important; }
+    .section h2 { font-size: 20px !important; }
+    .section h3 { font-size: 15px !important; }
 
-    .section h3 {
-        font-size: 15px !important;
-    }
+    .quote  { font-size: 16px; padding: 12px 22px; }
+    .lets   { padding: 12px 20px; }
 
-    .quote {
-        font-size: 16px;
-        padding: 12px 22px;
-    }
-
-    .lets {
-        padding: 12px 20px;
-    }
-
-
+    /* -------- #section1 : sticky header -------- */
     #section1 {
         padding-left: 15px;
         padding-right: 15px;
@@ -1090,17 +1102,11 @@ li {
         row-gap: 10px;
     }
 
-    #section1 img {
-        max-width: 120px;
-        height: auto;
-    }
+    #section1 img { max-width: 120px; height: auto; }
 
-    .buynow {
-        padding: 8px 18px;
-        font-size: 14px;
-    }
+    .buynow { padding: 8px 18px; font-size: 14px; }
 
-
+    /* -------- #section2 : banner -------- */
     .two-1 {
         flex-direction: column;
         padding: 10px 15px 0;
@@ -1109,7 +1115,7 @@ li {
 
     .two-1-1,
     .two-1-2 {
-        width: 100%;
+        width: 100% !important;
         flex-wrap: wrap;
         justify-content: flex-start;
         gap: 10px;
@@ -1128,83 +1134,56 @@ li {
         gap: 10px;
     }
 
-    .actions-1 {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .actions-1 img {
-        max-width: 130px;
-        height: auto;
-    }
+    .actions-1 { width: 100%; justify-content: center; }
+    .actions-1 img { max-width: 130px; height: auto; }
 
     .navoptions {
-        width: 100%;
+        width: 100% !important;
         flex-wrap: wrap;
         justify-content: center;
         gap: 12px;
         row-gap: 10px;
     }
 
-    .navoptions span {
-        font-size: 14px !important;
-    }
+    .navoptions span { font-size: 14px !important; }
 
-    .actions-2 {
-        width: 100%;
-        justify-content: center;
-    }
+    .actions-2 { width: 100%; justify-content: center; }
 
     .two-3 {
-        width: 100%;
-        height: auto;
-        margin-left: 0;
+        width: 100% !important;
+        height: auto !important;
+        margin-left: 0 !important;
         padding: 30px 20px;
         align-items: center;
         text-align: center;
     }
 
-    .headings-1 {
-        justify-content: center;
-    }
-
-    .headings-3 {
-        font-size: 15px;
-    }
+    .headings-1 { justify-content: center; }
+    .headings-3 { font-size: 15px; }
 
     .headings-4 {
-        width: 100%;
+        width: 100% !important;
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 25px;
         gap: 15px;
     }
 
+    /* -------- #section3 : scrolling ticker -------- */
+    /* overflow:hidden already set in desktop rule — keep it */
+    #section3 { font-size: 18px; }
 
-    #section3 {
-        flex-wrap: wrap;
-        font-size: 18px;
-        padding: 20px 10px;
-        gap: 10px;
-    }
-
-
-    #section4 {
-        flex-direction: column;
-        align-items: center;
-    }
+    /* -------- #section4 : about -------- */
+    #section4 { flex-direction: column; align-items: center; }
 
     .left-1 {
         display: block;
-        width: 100%;
+        width: 100% !important;
         padding: 20px;
         text-align: center;
     }
 
-    .below {
-        max-width: 260px;
-        height: auto;
-    }
+    .below { max-width: 260px; height: auto; }
 
     .above {
         width: 120px;
@@ -1213,225 +1192,168 @@ li {
         right: 30px;
     }
 
-    .right-1 {
-        padding: 20px;
-        text-align: center;
-    }
+    .right-1 { padding: 20px; text-align: center; }
 
     .right1sub-3,
     .right1sub-4 {
-        width: 100%;
+        width: 100% !important;
         flex-wrap: wrap;
         justify-content: flex-start;
         text-align: left;
     }
 
     .right1sub-5 {
-        width: 100%;
+        width: 100% !important;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
 
-
+    /* -------- #section5 & #section8 : services / projects -------- */
     #section5,
     #section8 {
-        padding: 40px 15px;
+        padding: 40px 15px !important;
     }
 
-    .services {
-        flex-direction: column;
-        gap: 20px;
-    }
+    .services { flex-direction: column; gap: 20px; }
 
     .twinners {
-        width: 100%;
+        width: 100% !important;
         justify-content: center;
     }
 
-    hr.other {
-        width: 90% !important;
-    }
+    /* Override the inline style="width:1200px" on the <hr> */
+    hr.other { width: 90% !important; }
 
     .servicecards {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         gap: 20px;
     }
 
-    .sc1 {
-        width: 100%;
-        max-width: 360px;
-    }
+    /* sc1 has desktop width:1260px — must use !important */
+    .sc1 { width: 100% !important; }
 
     .img1,
     .img2,
     .img3 {
-        width: 100%;
-        height: auto;
+        width: 100% !important;
+        height: auto !important;
     }
 
     .Workcards {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         gap: 70px;
     }
 
-    .wc1 {
-        width: 100%;
-        max-width: 360px;
-    }
+    .wc1 { width: 100% !important; }
 
-    .img4 {
-        width: 100%;
-        height: auto;
-    }
+    .img4 { width: 100% !important; height: auto !important; }
 
     .hoverinfo {
         width: 90%;
         height: auto;
         padding: 12px;
+        position: static;
+        margin-top: 10px;
     }
 
+    /* -------- #section6 : skills -------- */
+    #section6 { flex-direction: column; padding: 40px 15px; }
 
-    #section6 {
-        flex-direction: column;
-        padding: 40px 15px;
-    }
+    .left2 { padding: 0; }
 
-    .left2 {
-        padding: 0;
-    }
-
-    .hoverboxes {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    .hoverboxes { flex-wrap: wrap; justify-content: center; }
 
     .hoverbox-1,
     .hoverbox-2 {
-        width: 100%;
-        max-width: 320px;
+        width: 100% !important;
+        max-width: 100%;
     }
 
     .nnp,
-    .total {
-        width: 100%;
-    }
+    .total { width: 100% !important; }
 
-    .level-1 {
-        width: 90%;
-    }
-
-    .level-2 {
-        width: 80%;
-    }
+    .level-1 { width: 90%; }
+    .level-2 { width: 80%; }
 
     .right2 {
-        width: 70%;
+        width: 100%;
         max-width: 260px;
         margin: 30px auto 0;
     }
 
-    .right2 img {
-        max-width: 100%;
-        height: auto;
-    }
+    .right2 img { max-width: 100%; height: auto; }
 
-
+    /* -------- #section7 : counters -------- */
     #section7 {
         flex-wrap: wrap;
-        padding: 40px 15px;
+        padding: 40px 15px !important;
         gap: 30px;
     }
 
-    .circles {
-        flex: 1 1 40%;
-    }
+    .circles { flex: 1 1 40%; }
 
-    .incircle-1 img {
-        max-width: 60px;
-        height: auto;
-    }
+    .incircle-1 img { max-width: 60px; height: auto; }
 
-
+    /* -------- #section9 : process -------- */
     #section9 {
         margin-top: 60px;
         padding: 0 15px;
     }
 
     .bircircles {
-        width: 100%;
+        width: 100% !important;
         flex-direction: column;
         align-items: center;
         gap: 30px;
     }
 
-    .bigsub-1 {
-        text-align: center;
-        max-width: 320px;
-    }
+    .bigsub-1 { text-align: center; max-width: 320px; }
 
-    .process {
-        max-width: 70px;
-        height: auto;
-    }
+    .process { max-width: 70px; height: auto; }
 
     .imgarrows {
-        max-width: 50px;
-        height: auto;
+        max-width: 50px !important;
+        height: auto !important;
         margin: 0;
         transform: rotate(90deg);
     }
 
+    /* -------- #section10 : testimonials -------- */
+    #section10 { height: auto !important; padding: 40px 15px; }
 
-    #section10 {
-        height: auto;
-        padding: 40px 15px;
-    }
-
-    .users {
-        flex-direction: column;
-        align-items: center;
-    }
+    .users { flex-direction: column; align-items: center; }
 
     .user1 {
-        width: 100%;
-        max-width: 360px;
+        width: 100% !important;
         flex-direction: column;
         align-items: center;
         text-align: center;
         padding: 30px 15px;
     }
 
-    .dp {
-        max-width: 90px;
-        height: auto;
-    }
+    .dp { max-width: 90px; height: auto; }
 
-
+    /* -------- #section11 : brands -------- */
     #section11 {
-        height: auto;
-        padding: 30px 15px;
-        margin-top: 0;
-        margin-bottom: 0;
+        height: auto !important;
+        padding: 30px 15px !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
     }
 
     .companylogos {
-        width: 100%;
+        width: 100% !important;
         flex-wrap: wrap;
         gap: 20px;
     }
 
-    .companylogos img {
-        max-width: 90px;
-        height: auto;
-    }
+    .companylogos img { max-width: 90px; height: auto; }
 
-
-    #section12 {
-        padding: 50px 15px 40px;
-    }
+    /* -------- #section12 : team -------- */
+    #section12 { padding: 50px 15px 40px; }
 
     .membercards {
         flex-direction: column;
@@ -1440,94 +1362,74 @@ li {
         gap: 80px;
     }
 
-    .member {
-        max-width: 160px;
-        height: auto;
-        margin-top: -90px;
-    }
+    .member { max-width: 160px; height: auto; margin-top: -90px; }
 
-
-    #section13 {
-        margin: 40px 15px;
-    }
+    /* -------- #section13 : blog -------- */
+    #section13 { margin: 40px 15px !important; }
 
     .services2 {
         flex-direction: column;
-        margin-left: 0;
+        margin-left: 0 !important;
         align-items: flex-start;
         gap: 15px;
     }
 
-    .right1sub-6 {
-        width: 100%;
-        justify-content: flex-start;
-    }
+    .right1sub-6 { width: 100% !important; justify-content: flex-start; }
 
-    .Tipcards {
-        flex-direction: column;
-        gap: 30px;
-    }
+    .Tipcards { flex-direction: column; gap: 30px; }
 
-    .img7 {
-        width: 100%;
-        height: auto;
-    }
+    .img7 { width: 100% !important; height: auto !important; }
 
-    .prolific svg {
-        margin-left: auto !important;
-    }
+    /* Override inline style="margin-left:132px" on blog arrow SVGs */
+    .prolific svg { margin-left: auto !important; }
 
-
+    /* -------- #section14 : footer -------- */
     #section14 {
-        padding: 50px 15px;
+        padding: 50px 15px !important;
         background-size: cover;
         background-position: center top;
         background-color: #021c13;
     }
 
-    .network {
-        display: flex;
-        flex-direction: column;
-    }
+    .network { display: flex; flex-direction: column; }
 
+    /* footo has desktop: width:1200px + margin-left:100px + margin-right:100px */
     .footo {
-        width: 100%;
+        width: 100% !important;
         height: auto;
-        margin: 0;
+        margin: 0 !important;
     }
 
+    /* footb has desktop: position:absolute; left:270px — reset to flow */
     .footb {
-        position: static;
+        position: static !important;
         left: 0;
         top: 0;
         margin-top: 15px;
+        width: 100%;
     }
 
     .love {
-        width: 100%;
+        width: 100% !important;
         flex-wrap: wrap;
         gap: 12px;
     }
 
-    .loveme {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
+    .loveme { flex-wrap: wrap; gap: 10px; }
 
     .footercards {
         flex-direction: column;
         align-items: center;
-        margin: 40px 15px;
+        margin: 40px 15px !important;
         gap: 35px;
     }
 
-    .fc1 {
-        width: 100%;
-        max-width: 280px;
-    }
+    .fc1 { width: 100% !important; max-width: 280px; }
+
+    .Email { width: 100%; max-width: 100%; }
 
     .quote2 {
-        width: 100%;
+        width: 100% !important;
         height: auto;
         padding: 18px 24px;
     }
