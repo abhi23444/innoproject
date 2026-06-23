@@ -1,14 +1,20 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
-img, svg, video, iframe {
+img,
+svg,
+video,
+iframe {
     max-width: 100%;
     height: auto;
 }
@@ -22,10 +28,10 @@ img, svg, video, iframe {
     padding-top: 10px;
     margin: 0px;
     height: 60px;
-     position: sticky;
+    position: sticky;
     top: 0;
-    z-index: 100;
-    
+    z-index: 1000;
+
 }
 
 #section2 {
@@ -68,11 +74,12 @@ body {
     color: azure;
     background-color: rgb(86, 125, 26);
     border-radius: 6px;
-    padding: 5px 30px;
+    padding: 5px 20px;
     margin-top: 8px;
     margin-bottom: 12px;
     cursor: pointer;
-
+    /* position: sticky;
+    top: 0; */
 }
 
 .icons {
@@ -149,12 +156,12 @@ hr {
 }
 
 .quote {
-    padding: 15px 30px;
+    padding: 15px 20px;
     background-color: rgb(106, 161, 22);
     color: white;
     border-radius: 40px;
     border: none;
-    font-size: x-large;
+    font-size: large;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     cursor: pointer;
     transition: background-position 0.4s ease, color 0.4s ease;
@@ -162,6 +169,8 @@ hr {
     background-size: 200% 100%;
     background-position: left bottom;
     box-sizing: border-box;
+    margin-right: 50px;
+    width: 170px;
 
 }
 
@@ -169,7 +178,7 @@ hr {
 
 .quote:hover {
     cursor: pointer;
-     background-position: right bottom;
+    background-position: right bottom;
     color: white;
     /* background-color: black; */
     border: rgb(132, 199, 31) solid 2px;
@@ -227,7 +236,7 @@ hr {
 
 .lets {
     border: solid 2px rgb(132, 199, 31);
-    padding: 15px 30px;
+    padding: 8px 20px;
     border-radius: 40px;
     background-color: rgb(132, 199, 31);
     color: white;
@@ -239,6 +248,7 @@ hr {
     background-size: 200% 100%;
     background-position: left bottom;
     box-sizing: border-box;
+    /* width: 170px; */
 }
 
 .lets:hover {
@@ -261,7 +271,7 @@ hr {
 
 }
 
-.Watch:hover{
+.Watch:hover {
     transform: rotate(360deg);
 }
 
@@ -270,6 +280,8 @@ hr {
     display: flex;
     justify-content: space-between;
     width: 140px;
+    margin-left: 50px;
+    border: soid 2px white;
 }
 
 #section3 {
@@ -277,22 +289,22 @@ hr {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: x-large;
     color: azure;
-    margin: -1px; 
-    overflow: hidden; 
+    margin: -1px;
+    overflow: hidden;
 }
 
 .scroll-track {
-    display: flex;    
+    display: flex;
     width: max-content;
-    height: 80px;    
+    height: 80px;
     animation: pure-css-scroll 50s linear infinite;
 }
 
 .scroll-content {
     display: flex;
-    align-items: center;    
-    gap: 80px; 
-    padding-right: 80px; 
+    align-items: center;
+    gap: 80px;
+    padding-right: 80px;
 }
 
 .scroll-content p {
@@ -306,8 +318,9 @@ hr {
     0% {
         transform: translateX(0);
     }
+
     100% {
-        
+
         transform: translateX(-50%);
     }
 }
@@ -338,23 +351,17 @@ hr {
     left: 80px;
     z-index: 10;
     width: 300px;
-    animation-name: awardbounce;
-    animation-duration: 1s;
-    animation-delay: 0;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    animation-play-state:running ;
-    animation-direction: alternate;
+
 
 }
 
-@keyframes awardbounce{
+@keyframes awardbounce {
 
-    from{
-       transform:translateY(30px) 
+    from {
+        transform: translateY(30px)
     }
 
-    to{
+    to {
         transform: translateY(0px);
     }
 
@@ -433,7 +440,9 @@ hr {
 .non-butt {
     flex: 1 1 320px;
     min-width: 260px;
-    /* border: solid 2px black; */
+    height: 100px;
+    margin: 20px;
+    /* border: solid 2px red; */
 }
 
 .twinners {
@@ -441,18 +450,17 @@ hr {
     flex: 0 1 auto;
     min-width: 170px;
     gap: 10px;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    /* border: solid 2px; */
 }
 
 .twinners button {
     padding: 14px;
 }
 
-/* .non-butt{
-    
-} */
+
 
 .twin1 {
     border-radius: 50%;
@@ -461,13 +469,13 @@ hr {
     border: none;
 }
 
-.twin1:hover{
+.twin1:hover {
     background-color: #F5F8ED;
-    fill:  rgb(122, 194, 13) ;
+    fill: rgb(122, 194, 13);
 }
 
-.twi11:hover{
-    fill:  rgb(122, 194, 13) ;
+.twi11:hover {
+    fill: rgb(122, 194, 13);
 }
 
 .twin2 {
@@ -477,25 +485,25 @@ hr {
     border: none;
 }
 
-.twin2:hover{
+.twin2:hover {
     background-color: #F5F8ED;
 }
 
-    .servicecards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: space-evenly;
-        align-items: flex-start;
-    }
+.servicecards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
 
-    .sc1 {
-        background-color: rgb(240, 240, 233);
-        /* border: solid 2px; */
-        padding: 20px;
-        border-radius: 6px;
-        width: 380px;
-    }
+.sc1 {
+    background-color: rgb(240, 240, 233);
+    /* border: solid 2px; */
+    padding: 20px;
+    border-radius: 6px;
+    width: 380px;
+}
 
 .stripw2 {
     display: flex;
@@ -540,13 +548,23 @@ hr {
 .STP {
     position: absolute;
     top: 10px;
+    animation-name: awardbounce;
+    animation-duration: 1s;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+    animation-direction: alternate;
 }
 
+
+
 .left2 {
-    padding-left: 100px;
+    padding-left: 75px;
     padding-top: 30px;
     padding-right: 30px;
     /* border: solid 2px; */
+    width: 120vh;
 }
 
 .hoverboxes {
@@ -685,7 +703,7 @@ hr {
 }
 
 #section8 .non-butt {
-    flex: 1 1 600px;
+    flex: 1 1 100px;
     min-width: 260px;
     max-width: 780px;
 }
@@ -693,7 +711,7 @@ hr {
 #section8 .twinners {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: start;
     min-width: 220px;
 }
 
@@ -778,8 +796,8 @@ hr {
     box-sizing: border-box;
 }
 
-.vd:hover{
-     background-position: right bottom;
+.vd:hover {
+    background-position: right bottom;
     color: white;
     /* background-color: black; */
     border: rgb(132, 199, 31) solid 2px;
@@ -797,7 +815,7 @@ hr {
     flex-direction: column;
     padding: 0 20px;
     /* border: solid 2px; */
-    
+
 }
 
 #section9 .bircircles {
@@ -1000,7 +1018,7 @@ hr {
     display: flex;
     gap: 60px;
     justify-content: space-evenly;
-    margin-top: 180px;
+    margin-top: 0px;
 }
 
 .mc1 {
@@ -1048,8 +1066,8 @@ hr {
 
 .Tipcards {
     display: flex;
-    /* gap: 20px; */
-    justify-content: space-between;
+    /* gap: 10px; */
+    justify-content: space-around;
     /* border: solid 2px; */
 
 
@@ -1387,6 +1405,14 @@ li {
         align-items: center;
     }
 
+    .above {
+        position: absolute;
+        bottom: 150px;
+        left: 80px;
+        z-index: -10;
+        width: 300px;
+    }
+
     .left-1 {
         display: block;
         width: 100%;
@@ -1395,7 +1421,7 @@ li {
     }
 
     .below {
-        max-width: 260px;
+        max-width: 70vh;
         height: auto;
     }
 
@@ -1513,7 +1539,22 @@ li {
     }
 
     .left2 {
-        padding: 0;
+        padding: 20px;
+        margin: 10px;
+        display: flex;       
+        /* border: solid 2px; */
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .ninetybox {
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+    width: 100%;
+    /* border: solid 2px; */
     }
 
     .hoverboxes {
@@ -1529,7 +1570,7 @@ li {
 
     .nnp,
     .total {
-        width: 100%;
+        width: 70vh;
     }
 
     .level-1 {
@@ -1538,6 +1579,12 @@ li {
 
     .level-2 {
         width: 80%;
+    }
+
+    #section6 {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 
     .right2 {
@@ -1550,6 +1597,23 @@ li {
         max-width: 100%;
         height: auto;
     }
+
+    .STP {
+        position: absolute;
+        width:100px ;
+        top: 10px;
+        animation-name: awardbounce;
+        animation-duration: 1s;
+        animation-delay: 0;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-play-state: running;
+        animation-direction: alternate;
+    }
+
+    /* .circular{
+        width: 500px;
+    } */
 
 
     #section7 {
@@ -1656,17 +1720,20 @@ li {
 
     #section12 {
         padding: 50px 15px 40px;
+        /* flex: 1 1 100px; */
     }
 
     .membercards {
+        /* flex: 1 1 50px; */
         flex-direction: column;
         align-items: center;
-        margin-top: 100px;
-        gap: 80px;
+        margin-top: -150px;
+        gap: 100px;
+        /* border: solid 2px; */
     }
 
     .member {
-        max-width: 160px;
+        max-width: 200px;
         height: auto;
         margin-top: -90px;
     }
@@ -1680,12 +1747,17 @@ li {
         flex-direction: column;
         margin-left: 0;
         align-items: flex-start;
-        gap: 15px;
+        /* gap: 15px; */
+        /* border: solid 2px; */
+        /* flex: 1 1 10px; */
+        /* padding-left: 50px; */
     }
 
     .right1sub-6 {
         width: 100%;
-        justify-content: flex-start;
+        justify-content: center;
+        margin-top: -220px;
+        /* border: solid 2px; */
     }
 
     .Tipcards {
@@ -1719,13 +1791,18 @@ li {
         width: 100%;
         height: auto;
         margin: 0;
+        /* border: solid 2px; */
+        display: block;
+        position: relative;
+        height: 100px;
     }
 
     .footb {
-        position: static;
-        left: 0;
+        position: absolute;
+        left: 70px;
         top: 0;
         margin-top: 15px;
+        /* border: solid 2px; */
     }
 
     .love {
@@ -1754,48 +1831,52 @@ li {
     .quote2 {
         width: 100%;
         height: auto;
-        padding: 18px 24px;
+        padding: 0px ;
+    }
+
+    .Email{
+        width: 280px;
     }
 }
 
-.pb{
+.pb {
     animation-name: pointerbounce;
     animation-duration: 1s;
     animation-delay: 0;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-    animation-play-state:running ;
+    animation-play-state: running;
     animation-direction: alternate;
 
 }
 
-@keyframes pointerbounce{
+@keyframes pointerbounce {
 
-    from{
-       transform:translateX(30px) 
+    from {
+        transform: translateX(30px)
     }
 
-    to{
+    to {
         transform: translateX(0px);
     }
 
 }
 
-.whc{
+.whc {
     width: 20px;
     height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background:transparent;
+    background: transparent;
     /* border-radius: 50%; */
     fill: gray;
 }
 
-.whc:hover{
+.whc:hover {
     fill: white;
     border-radius: 50%;
-    background-color: rgb(106, 161, 22)  ;
+    background-color: rgb(106, 161, 22);
     margin: 1px;
 
 
